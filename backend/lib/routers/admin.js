@@ -8,6 +8,4 @@ router.post("/signup" , signup.addAdmin);
 
 router.post("/login" , login.loginAdmin);
 
-//router.post("/landlords" , service.addLandlord);
-
 export default router;
