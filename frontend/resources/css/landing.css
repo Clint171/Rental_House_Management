@@ -1,0 +1,25 @@
+body{
+    background-color: brown;
+    color : white;
+}
+nav{
+    display:flex;
+    background-color: rgb(196, 50, 50);
+    height: 60px;
+    border-radius: 1em;
+}   
+.nav li{
+   display:inline;
+   align-items: center;
+   margin:20px;
+}
+.nav li a{
+    color:white;
+    text-decoration: none;
+    padding : 0.5em;
+}
+.nav li a:hover{
+    color:antiquewhite;
+    background-color: brown;
+    border-radius: 0.5em;
+}
