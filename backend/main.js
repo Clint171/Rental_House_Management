@@ -1,24 +1,47 @@
-import express from 'express';
-import dotenv from 'dotenv';
-import db from './lib/db/db.js';
-import cors from 'cors';
-import adminRouter from './lib/routers/admin.js';
-import signupRouter from './lib/routers/signup.js';
-import loginRouter from './lib/routers/login.js';
-import userRouter from './lib/routers/api/user.js';
-
+const express = require("express");
+const mongoose = require("mongoose");
+const cookieParser = require("cookie-parser");
+const cors = require("cors");
+const accountRouter = require("./routes/accountRouter.js");
+const apartmentRouter = require("./routes/apartmentRouter.js");
+const ownerRouter = require("./routes/ownerRouter.js");
+const tenantRouter = require("./routes/tenantRouter.js");
+const userRouter = require("./routes/userRouter.js");
+const dotenv = require("dotenv");
 
 dotenv.config();
 
 const app = express();
-
-app.use(cors());
+app.use(cors({
+    origin: ["http://localhost:5500", "https://apex-apartment-management-system-frontend.onrender.com"],
+    credentials: true,
+    methods: "GET, POST, PUT, DELETE, OPTIONS",
+}));
 app.use(express.json());
-app.use("/admin" , adminRouter);
-app.use(signupRouter);
-app.use(loginRouter);
-app.use('/users' , userRouter);
+app.use(cookieParser());
+
+mongoose.connect(process.env.MONGO_URI, {
+    dbName: process.env.MONGO_DB,
+});
+
+let db = mongoose.connection;
+
+db.on("error", console.error.bind(console, "connection error:"));
+db.once("open", function () {
+    console.log("Connected to MongoDB");
+});
+
+app.use(express.static(__dirname + "/frontend"));
+app.use("/account", accountRouter);
+app.use("/apartments", apartmentRouter);
+app.use("/owner", ownerRouter);
+app.use("/tenant", tenantRouter);
+app.use("/users" , userRouter);
+
+app.use((req , res)=>{
+    res.send("An error occurred fetching the resource!");
+});
 
 app.listen(process.env.PORT, () => {
-  console.log(`Server is running on port ${process.env.PORT}`);
+    console.log(`Server is running on port ${process.env.PORT}`);
 });

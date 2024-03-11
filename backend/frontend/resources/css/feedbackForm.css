@@ -1,0 +1,36 @@
+.form-group{
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0 , 0.3);
+    margin-bottom: 1em;
+    border : 1px solid #7a7a7a;
+    padding: 1em;
+    border-radius: 1em;
+}
+.form-group input{
+    width: 100%;
+    padding: 1em;
+    border: none;
+    border-radius: 1em;
+    background-color: #ffffff;
+}
+.form-group label{
+    font-size: 1.2em;
+    margin-top: 1em;
+}
+
+button{
+    width: 100%;
+    padding: 1em;
+    border: none;
+    border-radius: 1em;
+    background-color: #7a7a7a;
+    color: white;
+    cursor: pointer;
+}
+
+textarea{
+    width: 95%;
+    height: max-content;
+    resize: vertical;
+}

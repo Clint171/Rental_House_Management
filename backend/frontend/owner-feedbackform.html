@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apex Apartments</title>
+    <link rel="stylesheet" href="./resources/css/index.css">
+    <link rel="stylesheet" href="./resources/css/feedbackForm.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Apex Apartments</h1>
+        <div class="call-to-action">
+            <a onclick="logout()" href="#">Logout</a>
+        </div>
+    </div>
+    <div class="nav">
+        <a href="owner-portal.html" class="nav-item">Owner Portal</a>
+        <a href="owner-apartment.html" class="nav-item">Apartment</a>
+        <a href="owner-tenants.html" class="nav-item">Tenants</a>
+        <a href="add-tenant.html" class="nav-item">Add Tenant</a>
+        <a href="owner-payments.html" class="nav-item">Payments</a>
+        <a href="owner-feedback.html" class="nav-item">Feedback hub</a>
+        <a href="owner-feedbackform.html" class="nav-item active">Give feedback</a>
+        <a href="privacy-policy.html" class="nav-item">Privacy Policy</a>
+        <a href="terms-of-service.html" class="nav-item">Terms of Service</a>
+        <a href="contact.html" class="nav-item">Contact Us</a>
+    </div>
+    <div class="container" id="container">
+        <h2>Give feedback</h2>
+        <form id="feedbackForm">
+            <div class="form-group">
+                <label for="feedback">Select an apartment:</label>
+                <select id="apartment-select" name="apartment" required>
+                    <option value="0">Select an apartment</option>
+                </select>
+            <div class="form-group">
+                <label for="feedback">Give feedback:</label>
+                <textarea id="text" name="feedback" required></textarea>
+            </div>
+            <button type="submit">Submit feedback</button>
+        </form>
+    </div>
+    <script src="./resources/js/ownerFeedbackForm.js"></script>
+</body>
+</html>
