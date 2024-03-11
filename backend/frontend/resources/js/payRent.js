@@ -4,6 +4,7 @@ paymentForm.addEventListener("submit", function(event){
     event.preventDefault();
     let amount = document.getElementById("amount").value;
     let reason = document.getElementById("reason").value;
+    alert("Processing payment");
     fetch("/tenant/payments", {
         method: 'POST',
         mode : "cors",

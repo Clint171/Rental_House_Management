@@ -47,6 +47,7 @@ getUsers();
 function addTenant(){
     let apartmentId = apSelect.value;
     let user = usrSelect.value;
+    alert("Tenant is being added. Please wait...");
     fetch(`/owner/${apartmentId}/tenants`, {
         method: "POST",
         headers: {

@@ -10,7 +10,7 @@ apartmentForm.addEventListener('submit', function (e) {
         occupiedRooms: document.getElementById('occupied').value,
         rent: document.getElementById('rent').value
     }
-
+    alert("Apartment is being added. Please wait...");
     fetch('/apartments/create', {
         method: 'POST',
         headers: {
